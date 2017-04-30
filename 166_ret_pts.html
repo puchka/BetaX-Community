@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Polylines</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      // This example creates a 2-pixel-wide red polyline showing the path of William
+      // Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
+      // Brisbane, Australia.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: -18.9, lng: 47.5},
+          mapTypeId: google.maps.MapTypeId.TERRAIN
+        });
+
+        var flightPlanCoordinates = [{lat: -18.8981, lng: 47.51922},
+{lat: -18.89826, lng: 47.51898},
+{lat: -18.89856, lng: 47.5192},
+{lat: -18.89868, lng: 47.51929},
+{lat: -18.89794, lng: 47.5204},
+{lat: -18.89785, lng: 47.52054},
+{lat: -18.89779, lng: 47.52059},
+{lat: -18.89776, lng: 47.52068},
+{lat: -18.89774, lng: 47.52074},
+{lat: -18.89772, lng: 47.52082},
+{lat: -18.89773, lng: 47.52089},
+{lat: -18.89779, lng: 47.52211},
+{lat: -18.89787, lng: 47.5223},
+{lat: -18.89811, lng: 47.52274},
+{lat: -18.89861, lng: 47.52353},
+{lat: -18.89914, lng: 47.52457},
+{lat: -18.89923, lng: 47.52483},
+{lat: -18.89931, lng: 47.52516},
+{lat: -18.89934, lng: 47.52577},
+{lat: -18.89935, lng: 47.52606},
+{lat: -18.89944, lng: 47.52644},
+{lat: -18.89954, lng: 47.52661},
+{lat: -18.89983, lng: 47.52686},
+{lat: -18.90033, lng: 47.52721},
+{lat: -18.90054, lng: 47.52735},
+{lat: -18.90074, lng: 47.52753},
+{lat: -18.90102, lng: 47.52779},
+{lat: -18.90134, lng: 47.52822},
+{lat: -18.90172, lng: 47.52874},
+{lat: -18.902, lng: 47.5291},
+{lat: -18.90208, lng: 47.52923},
+{lat: -18.90207, lng: 47.52927},
+{lat: -18.90203, lng: 47.52967},
+{lat: -18.90203, lng: 47.52998},
+{lat: -18.90192, lng: 47.53025},
+{lat: -18.90171, lng: 47.53042},
+{lat: -18.90138, lng: 47.53056},
+{lat: -18.90107, lng: 47.5306},
+{lat: -18.90102, lng: 47.53075},
+{lat: -18.90105, lng: 47.5308},
+{lat: -18.90113, lng: 47.53083},
+{lat: -18.9012, lng: 47.53081},
+{lat: -18.90161, lng: 47.53069},
+{lat: -18.90209, lng: 47.53047},
+{lat: -18.90213, lng: 47.53045},
+{lat: -18.90231, lng: 47.53091},
+{lat: -18.90174, lng: 47.53225},
+{lat: -18.90173, lng: 47.53233},
+{lat: -18.90171, lng: 47.53242},
+{lat: -18.90169, lng: 47.53245},
+{lat: -18.90171, lng: 47.53252},
+{lat: -18.90178, lng: 47.53273},
+{lat: -18.90252, lng: 47.53278},
+{lat: -18.90265, lng: 47.53285},
+{lat: -18.90279, lng: 47.53301},
+{lat: -18.90292, lng: 47.53323},
+{lat: -18.90311, lng: 47.53348},
+{lat: -18.90328, lng: 47.5336},
+{lat: -18.90357, lng: 47.53371},
+{lat: -18.90385, lng: 47.53377},
+{lat: -18.90406, lng: 47.53378},
+{lat: -18.90485, lng: 47.53383},
+{lat: -18.90529, lng: 47.53377},
+{lat: -18.90547, lng: 47.53371},
+{lat: -18.90583, lng: 47.53352},
+{lat: -18.90615, lng: 47.53324},
+{lat: -18.90629, lng: 47.53315},
+{lat: -18.90639, lng: 47.53313},
+{lat: -18.90647, lng: 47.53317},
+{lat: -18.90718, lng: 47.53412},
+{lat: -18.90807, lng: 47.53526},
+{lat: -18.90844, lng: 47.53573},
+{lat: -18.90862, lng: 47.53587},
+{lat: -18.90922, lng: 47.53617},
+{lat: -18.90989, lng: 47.53645},
+{lat: -18.91013, lng: 47.53648},
+{lat: -18.91052, lng: 47.53648},
+{lat: -18.91096, lng: 47.53649},
+{lat: -18.91134, lng: 47.53653},
+{lat: -18.91173, lng: 47.53659},
+{lat: -18.91189, lng: 47.53657},
+{lat: -18.91223, lng: 47.53646},
+{lat: -18.91245, lng: 47.53642},
+{lat: -18.91261, lng: 47.53643},
+{lat: -18.91279, lng: 47.53646},
+{lat: -18.91325, lng: 47.53661},
+{lat: -18.91398, lng: 47.53683},
+{lat: -18.91392, lng: 47.53727},
+{lat: -18.91381, lng: 47.53781},
+{lat: -18.91384, lng: 47.53799},
+{lat: -18.91392, lng: 47.53814},
+{lat: -18.91415, lng: 47.53823},
+{lat: -18.91428, lng: 47.53824},
+{lat: -18.91508, lng: 47.53874},
+{lat: -18.91522, lng: 47.53884},
+{lat: -18.91558, lng: 47.53922},
+{lat: -18.91585, lng: 47.53955},
+{lat: -18.91613, lng: 47.54003},
+{lat: -18.91667, lng: 47.54125},
+{lat: -18.91723, lng: 47.54254},
+{lat: -18.91749, lng: 47.54321},
+{lat: -18.91758, lng: 47.54351},
+{lat: -18.9176, lng: 47.54385},
+{lat: -18.91752, lng: 47.54458},
+{lat: -18.91734, lng: 47.54579},
+{lat: -18.91723, lng: 47.54652},
+{lat: -18.917, lng: 47.54718},
+{lat: -18.91684, lng: 47.54749},
+{lat: -18.91665, lng: 47.54778},
+{lat: -18.9164, lng: 47.5481},
+{lat: -18.91572, lng: 47.54907},
+{lat: -18.91566, lng: 47.54914},
+{lat: -18.91551, lng: 47.54918},
+{lat: -18.91518, lng: 47.54932}
+];
+        var flightPath = new google.maps.Polyline({
+          path: flightPlanCoordinates,
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
+
+        flightPath.setMap(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+  </body>
+</html>
