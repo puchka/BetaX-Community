@@ -8,6 +8,6 @@ to generate the path followed by buses in the urban area of Antanarivo.
 
 * getwaypoints.py : extract way points from the url contained in the file whose name is provided as command line argument
 * directions.py : generate an HTML file with the Map showing the path
-* change_api_key.sh : script itended to replace YOUR_API_KEY by a real API KEY
+* change_api_key.sh : script intended to replace YOUR_API_KEY by a real API KEY
 
 Get API KEY : https://developers.google.com/maps/documentation/javascript/get-api-key?hl=En
